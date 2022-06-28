@@ -1,0 +1,16 @@
+This file explains the headers in the PlateTemplate.csv file.  
+
+In essence, every other column in the first row of CSV is an expected to be meta data about the FRNT count.  This is based on a plate that has a single virus used in all wells, and two serum/antibody groups used with 6 replicates each.  Finally, the top row is expected to be the highest concentration of serum, and the last row contains just virus as a negative control.
+The first serum group is assigned columns 1-6, and the second group 7-12.  Any delitions to individual data points will be ignored (e.g., if a single well failed to produce a valid count do to a bubble, that well should be left blank), and a curve attempted without that specific well.
+
+Header List: [Metadata]
+Virus: Value should be entered in cell B1 (1,2).  Should be a unique ID for virus
+Serum 1: Value should be entered in cell D1 (1,4).  Should be a unique ID for the first serum or antibody used (columns A-F/1-6).
+Serum 2: Value should be entered in cell F1 (1,6).  Should be a unique ID for the Second serum or antibody used (columns G-L/7-12).
+Starting Dilution: Value should be entered in cell H1 (1,8).  This is the concetration/dilution used for the most concentrated row on the plate, which should be the top row.  For example, if the sera was diluted 1:20, the value should be 0.5.
+Dilution Factor: Value should be entered in cell J1 (1,10).  This is factor by which the concentration changes per row, and should be a constant across all 6 dilutions.  For example, if the first row is diluted 1:20, and the second 1:80, the value should be 4.
+Plate ID: Value should be entered in cell L1 (1,12).  Should be a unique ID for the actual plate scanned/imaged.  Used for tracking or returning to orginal data/images.
+Plate Date: Value should be entered in cell N1 (1,14). Should be the date the plate was scanned, in the format YYMMDD
+Passage: Value should be entered in cell P1 (1,16). Viral passage count or lot identifier to track multiple lots/passages of the particular virus as entered in B1.
+Graph Group Serum 1: Value should be entered in cell R1 (1,18). A tag used to group/organize graphing values generated from Serum 1 across plates.
+Graph Group Serum 2: Value should be entered in cell T1 (1,20). A tag used to group/organize graphing values generated from Serum 2 across plates.
