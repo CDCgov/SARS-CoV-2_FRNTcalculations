@@ -1,4 +1,4 @@
-#R Console Script for calculating
+#R Console Script for calculating FRNT50 from template CSV Files
 
 #install.packages('tidyverse')
 #install.packages('drc')
@@ -25,6 +25,7 @@ setwd("//cdc.gov/project/OID_VSDB_VPT/COVID-19_Projects/Plaque_Assay/2021-10-20_
 outdir = "./Output/"
 
 #Change this to match the folder containing only valid CSV files.
+#Valid CSV's should match the plate template layout file PlateTemplate.csv
 indir = "./CSV/"
 
 parse_file <- function(filename) {
