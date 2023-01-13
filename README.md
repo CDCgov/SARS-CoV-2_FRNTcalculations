@@ -1,6 +1,4 @@
-# CDCgov GitHub Organization Open Source Project Template
-
-**Template for clearance: This project serves as a template to aid projects in starting up and moving through clearance procedures. To start, create a new repository and implement the required [open practices](open_practices.md), train on and agree to adhere to the organization's [rules of behavior](rules_of_behavior.md), and [send a request through the create repo form](https://forms.office.com/Pages/ResponsePage.aspx?id=aQjnnNtg_USr6NJ2cHf8j44WSiOI6uNOvdWse4I-C2NUNk43NzMwODJTRzA4NFpCUk1RRU83RTFNVi4u) using language from this template as a Guide.**
+# Simple R code for the Calculation of FRNT50 Values from 96-well Plate Data
 
 **General disclaimer** This repository was created for use by CDC programs to collaborate on public health related projects in support of the [CDC mission](https://www.cdc.gov/about/organization/mission.htm).  GitHub is not hosted by the CDC, but is a third party website used by CDC and its partners to share information and collaborate on software. CDC use of GitHub does not imply an endorsement of any one particular service, product, or enterprise. 
 
@@ -17,10 +15,18 @@
 * [Contribution Notice](CONTRIBUTING.md)
 * [Code of Conduct](code-of-conduct.md)
 
+## System Requirements
+
+The uploaded code should work on any system able to exicute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script.  We have also included the Juypter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
+
 ## Overview
 
-Describe the purpose of your project. Add additional sections as necessary to help collaborators and potential collaborators understand and use your project.
-  
+The following code takes a folder containing a series of CSV files that contain the quantification of foci from an FRNT assay, parses the data in the CSV files, attempts a L3 fit for each paring, and produces a ggplot for each grouping.
+
+The structure of the CSV should be as described in the [HeaderDetails.txt](./Examples/HeaderDetails.txt) file.  Generally the code is currently setup to handle the data where the first row contains metadata, and the following 8 rows contain the count of foci in a 96-well format.  The code is currently setup to process one virus strain per plate and two serum samples across seven dilutions (6 replicates per sera/antibody per dilution and a no-serum positive control).  This could be modified as needed to cover diffent plate layouts, but this layout covers our standard FRNT protocols of 6 replicates per pair and dilution.
+
+Given a folder of correct input CSV files (set in a combination of lines 21 and 29) the output should be a single csv file named "final_ec50.csv" written in an output folder set in line 25.  There will also be a single normalised graph produced per "Graph Group" designated in the collection of input CSV files.
+
 ## Public Domain Standard Notice
 This repository constitutes a work of the United States Government and is not
 subject to domestic copyright protection under 17 USC § 105. This repository is in
