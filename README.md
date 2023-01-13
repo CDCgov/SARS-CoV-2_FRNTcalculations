@@ -17,17 +17,26 @@
 
 ## System Requirements
 
-The uploaded code should work on any system able to exicute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script, which can/should be commented out once required packages are installed.  We have also included the Juypter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
+The uploaded code should work on any system able to execute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script, which can/should be commented out once required packages are installed.  We have also included the Jupyter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
 
-The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.  Assuming a properly installed R console, instalation of the required packages typically takes 3-10 depending on internet connection and processing power.  The script itself requires no other instalation and should typically have a fairly rapid run time with datasets of under 200 plates.
+The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.  Assuming a properly installed R console, installation of the required packages typically takes 3-10 depending on internet connection and processing power.  The script itself requires no other installation and should typically have a fairly rapid run time with datasets of under 200 plates.
+
 
 ## Overview
 
-The following code takes a folder containing a series of CSV files that contain the quantification of foci from an FRNT assay, parses the data in the CSV files, attempts a L3 fit for each paring, and produces a ggplot for each grouping.
+The following code takes a folder containing a series of CSV files that contain the quantification of foci from an FRNT assay, parses the data in the CSV files, attempts a L3 fit for each paring, and produces a ggplot for each grouping.  To avoid fits that are less appropriate, if a given fit produces a Hill Constant that is less than 0.5 or greater than 2, the code will force a Hill Constant of 1, and then attempt a fit with the other two parameters.
 
-The structure of the CSV should be as described in the [HeaderDetails.txt](./Examples/HeaderDetails.txt) file.  Generally the code is currently setup to handle the data where the first row contains metadata, and the following 8 rows contain the count of foci in a 96-well format.  The code is currently setup to process one virus strain per plate and two serum samples across seven dilutions (6 replicates per sera/antibody per dilution and a no-serum positive control).  This could be modified as needed to cover diffent plate layouts, but this layout covers our standard FRNT protocols of 6 replicates per pair and dilution.
+The structure of the CSV should be as described in the [HeaderDetails.txt](./Examples/HeaderDetails.txt) file.  Generally the code is currently setup to handle the data where the first row contains metadata, and the following 8 rows contain the count of foci in a 96-well format.  The code is currently setup to process one virus strain per plate and two serum samples across seven dilutions (6 replicates per sera/antibody per dilution and a no-serum positive control).  This could be modified as needed to cover different plate layouts, but this layout covers our standard FRNT protocols of 6 replicates per pair and dilution.
 
-Given a folder of correct input CSV files (set in a combination of lines 21 and 29) the output should be a single csv file named "final_ec50.csv" written in an output folder set in line 25.  There will also be a single normalised graph produced per "Graph Group" designated in the collection of input CSV files.
+For convenience the EC50, EC60, EC70, and EC80 are calculated, and (1/EC50) is given for the reported FRNT50 value.  In other words, the value to answer the question, "what dilution ratio of sera will one need to achieve to neutralize 50% of the viral readout for this virus," or how should one dilute a particular sera or antibody sample to achieve a 50% reduction in foci for a particular virus.
+
+
+## Demo
+
+Given a folder of correct input CSV files (set in a combination of lines 21 and 29) the output should be a single csv file named "final_ec50.csv" written in an output folder set in line 25.  There will also be a single normalized graph produced per "Graph Group" designated in the collection of input CSV files.  
+
+When the provided example plate is run, it should produce three files, as seen in the [Expected Results](./Examples/Expected Results/) folder.
+
 
 ## Public Domain Standard Notice
 This repository constitutes a work of the United States Government and is not
