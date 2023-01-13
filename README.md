@@ -17,9 +17,9 @@
 
 ## System Requirements
 
-The uploaded code should work on any system able to exicute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script.  We have also included the Juypter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
+The uploaded code should work on any system able to exicute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script, which can/should be commented out once required packages are installed.  We have also included the Juypter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
 
-The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.
+The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.  Assuming a properly installed R console, instalation of the required packages typically takes 3-10 depending on internet connection and processing power.  The script itself requires no other instalation and should typically have a fairly rapid run time with datasets of under 200 plates.
 
 ## Overview
 
