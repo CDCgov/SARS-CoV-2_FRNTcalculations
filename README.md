@@ -35,7 +35,7 @@ For convenience the EC50, EC60, EC70, and EC80 are calculated, and (1/EC50) is g
 
 Given a folder of correct input CSV files (set in a combination of lines 21 and 29) the output should be a single csv file named "final_ec50.csv" written in an output folder set in line 25.  There will also be a single normalized graph produced per "Graph Group" designated in the collection of input CSV files.  
 
-When the provided example plate is run, it should produce three files, as seen in the [Expected Results](./Examples/Expected Results/) folder.
+When the provided example plate is run, it should produce three files, as seen in the <a href="https://github.com/CDCgov/SARS-CoV-2_FRNTcalculations/tree/master/Examples/Expected%20Results">Expected Results</a> folder.
 
 
 ## Public Domain Standard Notice
