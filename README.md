@@ -19,6 +19,8 @@
 
 The uploaded code should work on any system able to exicute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script.  We have also included the Juypter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
 
+The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.
+
 ## Overview
 
 The following code takes a folder containing a series of CSV files that contain the quantification of foci from an FRNT assay, parses the data in the CSV files, attempts a L3 fit for each paring, and produces a ggplot for each grouping.
