@@ -19,7 +19,7 @@
 
 The uploaded code should work on any system able to execute R code and install the tidyverse, drc, reshape, and Hmisc packages.  Calls to install these packages are at the head of the R script, which can/should be commented out once required packages are installed.  We have also included the Jupyter notebook code given the popularity of the platform, though setup of Jupyter to run R scripts is considered out side the scope of this documentation.
 
-The existing scripts have been tested on R version 4.1.1 and later, and do not have specific hardware requirements.  Assuming a properly installed R console, installation of the required packages typically takes 3-10 depending on internet connection and processing power.  The script itself requires no other installation and should typically have a fairly rapid run time with datasets of under 200 plates.
+The existing scripts have been tested on R version 4.1.1 and later with the i386 architecture, and do not have specific hardware requirements.  Assuming a properly installed R console, installation of the required packages typically takes 3-10 depending on internet connection and processing power.  The script itself requires no other installation and should typically have a fairly rapid run time with datasets of under 200 plates.
 
 
 ## Overview
@@ -34,6 +34,8 @@ For convenience the EC50, EC60, EC70, and EC80 are calculated, and (1/EC50) is g
 ## Demo
 
 Given a folder of correct input CSV files (set in a combination of lines 21 and 29) the output should be a single csv file named "final_ec50.csv" written in an output folder set in line 25.  There will also be a single normalized graph produced per "Graph Group" designated in the collection of input CSV files.  
+
+All that is required to run the code in a proper environment is to set a working directory, (line 21), an input subdirectory of the working directory (line 29), and an output subdirectory of the working directory (line 25).  After this, and assuming valid plates CSV files in the input directory, the code can be run simply by coping and pasting the whole code into the R Console.  There are, of course, many ways to execute R code, but this simple method should work.
 
 When the provided example plate is run, it should produce three files, as seen in the <a href="https://github.com/CDCgov/SARS-CoV-2_FRNTcalculations/tree/master/Examples/Expected%20Results">Expected Results</a> folder.
 
